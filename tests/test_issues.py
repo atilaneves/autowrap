@@ -116,3 +116,18 @@ def test_issue_54():
             assert c.i == 10
     else:
         assert c.i == 10
+
+
+def test_issue_133():
+    from issues import issue133
+    import pytest
+
+    res = issue133()
+    assert res.times4(1) == 4
+    assert res.times4(2) == 8
+    assert res.times4(3) == 12
+
+    # oops should not be accessible since it's private
+    with pytest.raises(AttributeError):
+        o = res.oops
+        assert o == 42

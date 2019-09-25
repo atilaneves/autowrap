@@ -110,3 +110,23 @@ class Issue54 {
 export void takesString(String str) {
 
 }
+
+
+struct Issue133 {
+
+    int times4(int i) {
+        return i * 4;
+    }
+
+    private auto oops() @property nothrow {
+        return PrivateStruct(42);
+    }
+}
+
+private struct PrivateStruct {
+    int i;
+}
+
+export Issue133 issue133() {
+    return Issue133();
+}
