@@ -217,6 +217,10 @@ class ExpressionVisitor(NodeVisitor):
 
         self.value = Index(name, index)
 
+    def visit_GeneratorExp(self, node):
+        from ast import dump
+        print(f"\nnode: {dump(node)}\n")
+
 
 def _flatten(list_of_lists):
     from itertools import chain

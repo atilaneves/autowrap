@@ -7,6 +7,14 @@ is_python = is_pyd or is_pynih
 is_cs = not is_python
 
 
+def test_foobar():
+    lst = [2, 4, 8]
+    assert len(lst) == 3
+    elt = lst[1]
+    assert elt == 4
+    assert all(x % 2 == 0 for x in lst)
+
+
 def test_adder():
     from adder import Adder
     assert Adder(3).add(5) == 8
@@ -102,7 +110,7 @@ def test_points():
     # FIXME C#: points is not registered
     # FIXME C# translation
     # * [ps] =
-    # * assert(all(...))
+    # * assert all(...)
     if is_python:
         from api import points
         [ps] = points(3, 1, 2)

@@ -339,3 +339,25 @@ def test_length():
             ]
         )
     ]
+
+
+def test_all():
+    ir = transform("""
+def test_all():
+    all(elt.x == 1 for elt in lst)
+""")
+
+    assert ir == [
+        AutowrapTest(
+            "test_all",
+            [
+                FunctionCall(
+                    Attribute(
+                        'lst',
+                        'all',
+                    ),
+                    [],  # args
+                )
+            ]
+        )
+    ]
